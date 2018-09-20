@@ -11,7 +11,7 @@ let purple = botconfig.purple;
         let eightballfailembed = new Discord.RichEmbed()
                                             .setColor(lightblue)
                                             .setTitle("**BEAR BOT**")
-                                            .setDescription("**MAGIC 8 BALL COMMAND:**\nPlease ask a complete question.")
+                                            .setDescription("**MAGIC 8 BALL:**\nPlease ask a complete question.")
                                                           if(!args[1]) return message.channel.send(eightballfailembed).then(msg => msg.delete(5000));
                                                           let replies = [
                                                                          "Yes.",
