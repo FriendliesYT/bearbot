@@ -12,7 +12,7 @@ let purple = botconfig.purple;
             let adminhelpEmbed = new Discord.RichEmbed()
             .setColor(red)
             .setTitle("**BEAR BOT**")
-            .setDescription('◇ !clear\n◇ !shutdown\n◇ !prefix\n◇ !clearconsole');
+            .setDescription('**ADMIN COMMANDS:**\n◇ !clear\n◇ !shutdown\n◇ !prefix\n◇ !clearconsole');
             if(!message.member.hasPermission("ADMINISTRATOR")) {return message.reply("You don't have permission.");}
             if(!args[0] || args[0 == "help"]) {return message.channel.send(adminhelpEmbed).then(msg => (msg.delete(10000)));}
               }
