@@ -1,12 +1,3 @@
-///////////////////////////////////////////////////////////////
-//                                                           //
-//                                                           //
-//                        8 BALL COMMAND                     //
-//              USAGE: ${prefix}8ball <question>             //
-//                                                           //
-//                                                           //
-///////////////////////////////////////////////////////////////
-
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 let red = botconfig.red;
