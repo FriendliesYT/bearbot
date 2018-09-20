@@ -29,7 +29,7 @@ let purple = botconfig.purple;
                                                           let eightballembed = new Discord.RichEmbed()
                                                                                               .setTitle("**BEAR BOT**")
                                                                                               .setColor(lightblue)
-                                                                                              .setDescription("**MAGIC 8 BALL COMMAND:**")
+                                                                                              .setDescription("**MAGIC 8 BALL:**")
                                                                                               .addField("Question:", question)
                                                                                               .addField("Answer:", replies[result]);
                                                           message.channel.send(eightballembed).then(msg => msg.delete(10000));
