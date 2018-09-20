@@ -5,6 +5,7 @@
   "main": "bot.js",
   "author": "“Friendlies”",
   "dependencies": {
+    "discord.js": "^11.2.1",
     "ffmpeg": "0.0.4",
     "moment": "^2.22.2",
     "opusscript": "0.0.6",
