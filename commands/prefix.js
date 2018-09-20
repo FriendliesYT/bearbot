@@ -22,7 +22,7 @@ let purple = botconfig.purple;
   let prefixEmbed = new Discord.RichEmbed()
                                       .setColor(orange)
                                       .setTitle(`**BEAR BOT**`)
-                                      .setDescription(`Usage: ${prefix}prefix <prefix>`)
+                                      .setDescription(`**PREFIX COMMAND:**\nUsage: ${prefix}prefix <prefix>`)
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You don't have permission.");
   if(!args[0] || args[0 == "help"]) {
                                     return message.channel.send(prefixEmbed).then(msg => msg.delete(10000));
