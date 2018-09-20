@@ -9,10 +9,20 @@ let lightblue = botconfig.lightblue;
 let darkblue = botconfig.darkblue;
 let purple = botconfig.purple;
       module.exports.run = async (bot, message, args) => {
-                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You don't have permission.");
-                if(!args[0]) return message.channel.send({embed: {color: 15158332, title: "Clean Command Syntax:", description: `Usage: !clean <1 to 100>`}}).then(msg => msg.delete(4000)); //CHANGE TO RICHEMBED
+let cleanedEmbed = new Discord.RichEmbed()
+.setColor(green)
+.setTitle("Bear Bot")
+.setDescription(`Cleaned ${args[0]} messages.`);
+let nopermissionEmbed = new Discord.RichEmbed()
+.setColor(green)
+.setTitle("Bear Bot")
+.setDescription(`${message.author.username}, you don't have permission to clean messages.`);
+let cleancommandsyntaxEmbed = new Discord.RichEmbed()
+.setColor(green)
+.setTitle("**Bear Bot**")
+.setDescription(`Usage: !clean <1 to 100>`);
+                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(nopermissionEmbed);
+                if(!args[0]) return message.channel.send(cleancommandsyntaxEmbed).then(msg => msg.delete(4000));
                 message.channel.bulkDelete(args[0]).then(() => {
-                message.channel.send({embed: {color: 15158332, title: "Bear Bot", description: `Cleaned ${args[0]} messages.`}}).then(msg => msg.delete(3000)); //CHANGE TO RICHEMBED
-                                                                  });
-                                                                  }
+                message.channel.send(cleanedEmbed).then(msg => msg.delete(3000));});}
       module.exports.help = {name:"clean"}
