@@ -1,11 +1,3 @@
-///////////////////////////////////////////////////////////////
-//                                                           //
-//                                                           //
-//                      PREFIX COMMAND                       //
-//                                                           //
-//                                                           //
-///////////////////////////////////////////////////////////////
-
 const Discord = require("discord.js");
 const fs = require("fs");
 const prefix = require("../prefixes.json");
@@ -27,39 +19,22 @@ let purple = botconfig.purple;
       console.log(`                    The current prefix is ${prefix}`);
   //                                                           //
   ///////////////////////////////////////////////////////////////
-
-
   let prefixEmbed = new Discord.RichEmbed()
-                                      .setColor(red)
-                                      .setTitle(`Current prefix: "${prefix}"`)
+                                      .setColor(orange)
+                                      .setTitle(`**BEAR BOT**`)
                                       .setDescription(`Usage: ${prefix}prefix <prefix>`)
-
-
-
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You don't have permission.");
   if(!args[0] || args[0 == "help"]) {
                                     return message.channel.send(prefixEmbed).then(msg => msg.delete(10000));
                                     }
-
-
-
-
-  setPrefix[message.guild.id] = {
-    setPrefix: args[0]
-  };
-
-
+  setPrefix[message.guild.id] = {setPrefix: args[0]};
   fs.writeFile("./prefixes.json", JSON.stringify(setPrefix), (err) => {
-    if (err){
-            console.log(err)
-              }
-  });
-  message.channel.send({embed:{
-                              color: 15158332,
-                              title: "Prefix Set.",
-                              description: `Set to ${args[0]}`
-                              }})}
-
+    if (err){console.log(err)}});
+  let prefixsetEmbed = new Discord.RichEmbed()
+    .setColor(orange)
+    .setTitle("**BEAR BOT**")
+    .setDescription(`Prefix set to ${args[0]}`);
+  message.channel.send(prefixsetEmbed)}
       module.exports.help = {
         name:"prefix"
       }
