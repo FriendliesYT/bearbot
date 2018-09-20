@@ -10,8 +10,8 @@ let purple = botconfig.purple;
       module.exports.run = async (bot, message, args) => {
         let eightballfailembed = new Discord.RichEmbed()
                                             .setColor(lightblue)
-                                            .setTitle("Magic 8 Ball")
-                                            .setDescription("Please ask a complete question.")
+                                            .setTitle("**BEAR BOT**")
+                                            .setDescription("**MAGIC 8 BALL COMMAND:**\nPlease ask a complete question.")
                                                           if(!args[1]) return message.channel.send(eightballfailembed).then(msg => msg.delete(5000));
                                                           let replies = [
                                                                          "Yes.",
@@ -27,8 +27,9 @@ let purple = botconfig.purple;
                                                           let result = Math.floor((Math.random() * replies.length));
                                                           let question = args.slice(0).join(" ");
                                                           let eightballembed = new Discord.RichEmbed()
-                                                                                              .setTitle("Magic 8 Ball")
+                                                                                              .setTitle("**BEAR BOT**")
                                                                                               .setColor(lightblue)
+                                                                                              .setDescription("**MAGIC 8 BALL COMMAND:**")
                                                                                               .addField("Question:", question)
                                                                                               .addField("Answer:", replies[result]);
                                                           message.channel.send(eightballembed).then(msg => msg.delete(10000));
