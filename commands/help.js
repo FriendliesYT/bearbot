@@ -5,7 +5,7 @@ const fs = require("fs");
         let helpEmbed = new Discord.RichEmbed()
         .setColor(lightblue)
         .setTitle("**BEAR BOT**")
-        .setDescription('⚪︎ !coins\n⚪︎ !pay\n⚪︎ !8ball\n⚪︎ !goodnight\n⚪︎ !online\n⚪︎ !youtube');
+        .setDescription('◯ !coins\n◯ !pay\n◯ !8ball\n◯ !goodnight\n◯ !online\n◯ !youtube');
 
         message.channel.send(helpEmbed).then(msg => (msg.delete(10000))); //CHANGE TO RICHEMBED
       }
