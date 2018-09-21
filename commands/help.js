@@ -12,7 +12,7 @@ let purple = botconfig.purple;
       module.exports.run = async (bot, message, args) => {
 
         let helpEmbed = new Discord.RichEmbed()
-        .setColor(lightblue)
+        .setColor(botblue)
         .setTitle("**BEAR BOT**")
         .setDescription('**COMMANDS:**\n◇ !coins\n◇ !pay\n◇ !8ball\n◇ !goodnight\n◇ !online\n◇ !youtube');
 
