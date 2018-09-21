@@ -11,6 +11,7 @@ let lightblue = botconfig.lightblue;
 let darkblue = botconfig.darkblue;
 let purple = botconfig.purple;
 let coins = require("./coins.json");
+let xp = require("./xp.json");
 let cooldown = new Set();
 let cdseconds = 86400;
 
@@ -42,10 +43,18 @@ bot.on("message", async message =>{
                                            //if(coinAmt === baseAmt){coins[message.author.id] = {coins: coins[message.author.id].coins + coinAmt};
                                            fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
                                            if (err) console.log(err)});
+
+
+
+                                          let xpAdd = Math.floor(Math.random() * 7) + 8;
+                                          message.channel.send(xpAdd);
+
+
+
+
+
+
                                            let prefix = setPrefix[message.guild.id].setPrefix;
-
-
-
                                         //    if(!message.content.startsWith(prefix + `daily`)) return;
                                         //    if(cooldown.has(message.author.id)){
                                         //    let cdtime = new Date().toLocaleTimeString();
