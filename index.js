@@ -70,8 +70,11 @@ bot.on("message", async message =>{
                                           if(nxtLvl <= xp[message.author.id].xp){
                                             xp[message.author.id].level = curlvl + 1;
 
+                                            fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+                                              if(err) console.log(err)
+                                            });
+
                                           }
-                                          console.log(`Level is ${xp[message.author.id].level}`);
 
                                           ////////////START OFF HERE
 
