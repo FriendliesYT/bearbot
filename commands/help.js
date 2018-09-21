@@ -5,6 +5,7 @@ let red = botconfig.red;
 let orange = botconfig.orange;
 let yellow = botconfig.yellow;
 let green = botconfig.green;
+let botblue = botconfig.botblue;
 let lightblue = botconfig.lightblue;
 let darkblue = botconfig.darkblue;
 let purple = botconfig.purple;
