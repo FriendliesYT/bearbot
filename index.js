@@ -3,11 +3,13 @@ const fs = require("fs");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botconfig = require("./botconfig.json");
+const token = require("./token.json");
 let red = botconfig.red;
 let orange = botconfig.orange;
 let yellow = botconfig.yellow;
 let green = botconfig.green;
 let lightblue = botconfig.lightblue;
+let botblue = botconfig.botblue;
 let darkblue = botconfig.darkblue;
 let purple = botconfig.purple;
 let coins = require("./coins.json");
@@ -47,8 +49,7 @@ bot.on("message", async message =>{
 
 
                                           let xpAdd = Math.floor(Math.random() * 7) + 8;
-                                          console.log(xpAdd);
-
+                                          console.log(`${message.author.id}: + ${xpAdd} xp.`);
                                           if(!xp[message.author.id]){
                                             xp[message.author.id] = {
                                               xp: 0,
@@ -61,6 +62,12 @@ bot.on("message", async message =>{
                                           xp[message.author.id].xp = curxp + xpAdd;
                                           if(nxtLvl <= xp[message.author.id].xp){
                                             xp[message.author.id].level = curlvl + 1;
+
+                                          let lvlup = new Discord.RichEmbed()
+                                            .setTitle("**BEAR BOT**")
+                                            .setColor(purple)
+                                            .setDescription(`${message.author.username}, you are now level ${curlvl + 1}!`);
+                                            message.channel.send(lvlup).then(msg => {msg.delete(5000)});
                                           }
                                           fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
                                             if(err) console.log(err)
@@ -71,13 +78,9 @@ bot.on("message", async message =>{
 
 
                                            let prefix = setPrefix[message.guild.id].setPrefix;
-                                        //    if(!message.content.startsWith(prefix + `daily`)) return;
-                                        //    if(cooldown.has(message.author.id)){
-                                        //    let cdtime = new Date().toLocaleTimeString();
-                                        //    message.delete();
-                                        //    return message.reply(`You have to wait till ${prefix} tomorrow!`)
-                                        //   }
-                                        //  cooldown.add(message.author.id);
+                                           
+  
+  
                                            let msgArray = message.content.split(" ");
                                            let cmd = msgArray[0];
                                            if(cmd.slice(0, prefix.length) !== prefix) return;
@@ -91,4 +94,4 @@ bot.on("message", async message =>{
 
                                            let msg = message.content.toUpperCase();
                                            if (msg.startsWith(prefix)){message.delete();}});
-bot.login(process.env.token);
+bot.login(token.token);
